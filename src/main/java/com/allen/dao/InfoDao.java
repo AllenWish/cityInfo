@@ -40,4 +40,11 @@ public interface InfoDao {
             " from t_info t,t_infoType d " +
             " where t.info_type=d.id and t.info_state=1 and t.id=#{id}")
     public Map<String,Object> getById(@Param("id")int id) throws Exception;
+
+    @Select(" select t.id,t.info_title as infoTitle,t.info_content as infoContent,t.info_linkman as infoLinkman," +
+            " t.info_phone as infoPhone, t.info_email as infoEmail,t.info_date as infoDate,t.info_state as infoState," +
+            " t.info_payfor as infoPayfor,d.id as typeId,d.type_sign as typeSign,d.type_name as typeName,d.type_intro as typeIntro " +
+            " from t_info t,t_infoType d " +
+            " where t.info_type=d.id and t.info_state=1 and d.id=#{id}")
+    public List<Map<String,Object>> getByTypeId(@Param("id")int id);
 }

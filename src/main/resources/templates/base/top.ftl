@@ -44,7 +44,7 @@
 
                             <#list infoTypeList as infoType>
 
-                                <td width="100"><a href="" style="color:white">${infoType.typeIntro}</a></td>
+                                <td width="100"><a href="${ctx.contextPath}/infoType/infos/${infoType.id!0}" style="color:white">${infoType.typeIntro}</a></td>
 
                                 <#if infoType?counter==5></tr><tr align="center"></#if>
 

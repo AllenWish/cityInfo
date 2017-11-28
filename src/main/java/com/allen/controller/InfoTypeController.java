@@ -1,6 +1,7 @@
 package com.allen.controller;
 
 import com.allen.entity.InfoTypeEntity;
+import com.allen.service.InfoService;
 import com.allen.service.InfoTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ import java.util.Map;
 @RequestMapping("/infoType")
 public class InfoTypeController {
 
+    @Autowired
+    private InfoService infoService;
     @Autowired
     private InfoTypeService infoTypeService;
     //http://localhost:8033/cityInfo/infoType/1
@@ -46,6 +49,16 @@ public class InfoTypeController {
         map.put("typeList", typeList);
         return "allInfoType";
     }
+    @RequestMapping("/infos/{id}")
+    public String infoType(Map<String,Object> resultMap,@PathVariable("id") int id) throws Exception{
+        //根据typeId 查找记录
+        List<Map<String,Object>> infoList = infoService.getByTypeId(id);
+
+        resultMap.put("mainPage","searchPage.ftl");
+        resultMap.put("infoList",infoList);
+        return "index";
+    }
+
 
 
 }

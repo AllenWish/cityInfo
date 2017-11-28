@@ -46,7 +46,7 @@
 
                         <#if info?is_last>
 
-                            <tr height="20" bgcolor="#FAFCF5"><td align="right"><a href="">更多...</a>&nbsp;&nbsp;</td></tr>
+                            <tr height="20" bgcolor="#FAFCF5"><td align="right"><a href="${ctx.contextPath}/infoType/infos/${info.typeId!0}">更多...</a>&nbsp;&nbsp;</td></tr>
 
                         </#if>
                     </table>

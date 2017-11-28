@@ -36,4 +36,9 @@ public class InfoServiceImp implements InfoService {
     public Map<String, Object> getById(int id) throws Exception {
         return infoDao.getById(id);
     }
+
+    @Override
+    public List<Map<String, Object>> getByTypeId(int id) {
+        return infoDao.getByTypeId(id);
+    }
 }
