@@ -1,0 +1,24 @@
+server:
+  port: 8033
+  context-path: /cityInfo
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_cityInfo?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 1234
+  jpa:
+    show-sql: true
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    request-context-attribute: ctx
+logging:
+  level: com.allen.dao true

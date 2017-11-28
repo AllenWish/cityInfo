@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: dev
+#mybatis:
+#    typeAliasesPackage: com.allen.**.entity
+#    mapperLocations: classpath:/com/allen/**/mapper/*.xml
