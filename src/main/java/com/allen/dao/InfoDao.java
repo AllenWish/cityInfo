@@ -1,5 +1,7 @@
 package com.allen.dao;
 
+import com.allen.entity.InfoEntity;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -47,4 +49,8 @@ public interface InfoDao {
             " from t_info t,t_infoType d " +
             " where t.info_type=d.id and t.info_state=1 and d.id=#{id}")
     public List<Map<String,Object>> getByTypeId(@Param("id")int id);
+
+    @Insert("insert into t_info values(null,#{infoType},#{infoTitle},#{infoContent},#{infoLinkman},#{infoPhone}," +
+            "#{infoEmail},now(),#{infoState},#{infoPayfor})")
+    public void insertInfo(InfoEntity info);
 }

@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>都市信息网</title>
-    <base href="<%=basePath%>">
+    <base href="${ctx.contextPath}">
     <link type="text/css" rel="stylesheet" href="${ctx.contextPath}/css/style.css">
 </head>
 <body background="${ctx.contextPath}/images/back.gif">

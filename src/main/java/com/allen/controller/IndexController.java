@@ -1,13 +1,18 @@
 package com.allen.controller;
 
+import com.allen.base.ContextSession;
 import com.allen.entity.InfoTypeEntity;
+import com.allen.entity.UserEntity;
 import com.allen.service.InfoService;
 import com.allen.service.InfoTypeService;
+import com.allen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,21 +29,34 @@ public class IndexController {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private InfoService infoService;
-    @RequestMapping("/")
-    public String index(Map<String,Object> resultMap) throws Exception {
+    @Autowired
+    private UserService userService;
+    @RequestMapping({"/","/index"})
+    public String index(Map<String,Object> resultMap, HttpServletRequest request) throws Exception {
         List<Map<String,Object>> infoListMap = infoService.allPay();
-        List<InfoTypeEntity> all = infoTypeService.findAll();
+
+        List<InfoTypeEntity> all = (List<InfoTypeEntity>) request.getServletContext().getAttribute(ContextSession.INFOTYPELIST);
+
         List freeInfoList = new ArrayList<>();
         for(InfoTypeEntity infoType:all){
             List<Map<String,Object>> freeInfo = infoService.findFree(infoType.getId());
             freeInfoList.add(freeInfo);
         }
-
-        resultMap.put("infoTypeList",all);//导航标题
         resultMap.put("infoList",infoListMap);//缴费信息
         resultMap.put("freeInfoList",freeInfoList);//免费信息
         return "index";
     }
+
+    @RequestMapping("/publish")
+    public String publish(Map<String,Object> resultMap) throws Exception{
+        //获取所有标题类别
+        /*List<InfoTypeEntity> all = infoTypeService.findAll();
+
+        resultMap.put("infoTypeList",all);*/
+        resultMap.put("mainPage","publish.ftl");
+        return "index";
+    }
+
     @RequestMapping("/search")
     public String search(Map<String,Object> resultMap, String keyword,String content,String searchType) throws Exception{
         String sql = " select t.id,t.info_title as infoTitle,t.info_content as infoContent,t.info_linkman as infoLinkman," +
@@ -63,6 +81,23 @@ public class IndexController {
         resultMap.put("content",content);
         resultMap.put("searchType",searchType);
         return "index";
+    }
+
+    @RequestMapping("/admin/login")
+    public String toLogin(Map<String,Object> resultMap){
+        return "admin/login";
+    }
+
+    @RequestMapping("/dologin")
+    public String dologin(UserEntity user,Map<String, Object> resultMap,HttpServletRequest request) throws Exception{
+        UserEntity loginUser = userService.login(user);
+        if(loginUser==null){
+            resultMap.put("error","账号或者密码错误！");
+            return "admin/login";
+        }else{
+            request.getSession().setAttribute(ContextSession.LOGINUSER,loginUser);
+            return "redirect:user/index";
+        }
     }
 
 }

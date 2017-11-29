@@ -11,9 +11,9 @@
         <tr height="20">
             <td style="text-indent:10" valign="bottom">
 
-                <a href="#" style="color:gray">[发布信息]</a>
+                <a href="${ctx.contextPath}/publish" style="color:gray">[发布信息]</a>
 
-                <a href="#" style="color:gray">[进入后台]</a>
+                <a href="${ctx.contextPath}/user/index" style="color:gray">[进入后台]</a>
 
             </td>
 
