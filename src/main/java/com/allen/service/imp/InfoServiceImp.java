@@ -1,6 +1,7 @@
 package com.allen.service.imp;
 
 import com.allen.dao.InfoDao;
+import com.allen.entity.InfoEntity;
 import com.allen.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,10 @@ public class InfoServiceImp implements InfoService {
     @Override
     public List<Map<String, Object>> getByTypeId(int id) {
         return infoDao.getByTypeId(id);
+    }
+
+    @Override
+    public void insertInfo(InfoEntity info) throws Exception {
+        infoDao.insertInfo(info);
     }
 }

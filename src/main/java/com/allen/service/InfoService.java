@@ -1,5 +1,7 @@
 package com.allen.service;
 
+import com.allen.entity.InfoEntity;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,4 +15,6 @@ public interface InfoService {
     public Map<String,Object> getById(int id) throws Exception;
 
     public List<Map<String,Object>> getByTypeId(int id);
+
+    public void insertInfo(InfoEntity info) throws Exception;
 }
