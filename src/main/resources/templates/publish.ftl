@@ -89,7 +89,7 @@
                                         <tr>
                                             <td style="text-indent:10">是否付费：</td>
                                             <td >
-                                                <input type="radio" id="free" value=0 name="infoPayfor"  checked/>免费
+                                                <input type="radio" id="free" name="infoPayfor" value=0 checked/>免费
                                                 <input type="radio" id="payfor" value=1 name="infoPayfor"  />付费
                                             </td>
                                         </tr>
