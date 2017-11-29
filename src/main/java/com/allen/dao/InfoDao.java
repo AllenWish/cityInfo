@@ -53,4 +53,7 @@ public interface InfoDao {
     @Insert("insert into t_info values(null,#{infoType},#{infoTitle},#{infoContent},#{infoLinkman},#{infoPhone}," +
             "#{infoEmail},now(),#{infoState},#{infoPayfor})")
     public void insertInfo(InfoEntity info);
+
+
+    public List<InfoEntity> infoList(InfoEntity infoEntity);
 }

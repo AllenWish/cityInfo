@@ -77,6 +77,9 @@ public class InfoEntity {
         this.infoDate = infoDate;
     }
 
+    public Date getInfoDate() {
+        return infoDate;
+    }
 
     public String getInfoState() {
         return infoState;

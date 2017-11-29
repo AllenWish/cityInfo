@@ -9,6 +9,7 @@
         }else{
             document.getElementById("searchForm").submit();
         }
+
     }
 </script>
 <body background="${ctx.contextPath}/images/back.gif">
@@ -38,9 +39,13 @@
         <tr>
             <td>
                 信息类别：
-                <select id="typeId" name="typeId">
+                <select id="typeId" name="infoType">
                     <option value="">请选择...</option>
+                    <option value="0">全部</option>
                     <#-- 遍历infoTypeList -->
+                    <#list infoTypeList as infoType>
+                        <option value="${infoType.id}">${infoType.typeIntro}</option>
+                    </#list>
                 </select>
                 <input type="button" onclick="checkForm()" value="查询"/>
             </td>

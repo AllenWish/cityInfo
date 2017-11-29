@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allen.dao.UserDao">
+    <resultMap id="userMap" type="com.allen.entity.UserEntity">
+        <id property="id" column="id" javaType="int"></id>
+        <result property="userName" column="user_name" javaType="java.lang.String"></result>
+        <result property="password" column="password" javaType="java.lang.String"></result>
+    </resultMap>
+
+</mapper>

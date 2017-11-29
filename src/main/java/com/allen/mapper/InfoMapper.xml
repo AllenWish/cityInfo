@@ -1,0 +1,34 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allen.dao.InfoDao">
+    <resultMap id="infoMap" type="com.allen.entity.InfoEntity">
+        <id property="id" column="id" javaType="int"></id>
+        <result property="infoType" column="info_type" javaType="int"></result>
+        <result property="infoTitle" column="info_title" javaType="java.lang.String"></result>
+        <result property="infoContent" column="info_content" javaType="java.lang.String"></result>
+        <result property="infoLinkman" column="info_linkman" javaType="java.lang.String"></result>
+        <result property="infoPhone" column="info_phone" javaType="java.lang.String"></result>
+        <result property="infoEmail" column="info_email" javaType="java.lang.String"></result>
+        <result property="infoDate" column="info_date" javaType="java.util.Date"></result>
+        <result property="infoState" column="info_state" javaType="java.lang.String"></result>
+        <result property="infoPayfor" column="info_payfor" javaType="java.lang.String"></result>
+    </resultMap>
+
+
+    <select id="infoList" resultMap="infoMap" parameterType="com.allen.entity.InfoEntity">
+        select * FROM t_info
+        <where>
+            <if test="infoType!=0 " >
+                and info_type = #{infoType}
+            </if>
+            <if test="infoState!= 'all' ">
+                and info_state = #{infoState}
+            </if>
+            <if test="infoPayfor != 'all' ">
+                and info_payfor = #{infoPayfor}
+            </if>
+        </where>
+
+        order by info_date DESC
+    </select>
+
+</mapper>

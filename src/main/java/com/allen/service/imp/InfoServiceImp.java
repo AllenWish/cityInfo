@@ -47,4 +47,9 @@ public class InfoServiceImp implements InfoService {
     public void insertInfo(InfoEntity info) throws Exception {
         infoDao.insertInfo(info);
     }
+
+    @Override
+    public List<InfoEntity> infoList(InfoEntity infoEntity) throws Exception{
+        return infoDao.infoList(infoEntity);
+    }
 }

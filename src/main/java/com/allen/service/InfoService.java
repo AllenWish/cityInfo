@@ -17,4 +17,6 @@ public interface InfoService {
     public List<Map<String,Object>> getByTypeId(int id);
 
     public void insertInfo(InfoEntity info) throws Exception;
+
+    public List<InfoEntity> infoList(InfoEntity infoEntity) throws Exception;
 }
