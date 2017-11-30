@@ -11,6 +11,14 @@
         }
 
     }
+    function setRadioBoxSelect(radioName,radiovalue){
+        var obj = document.getElementsByName(radioName);
+        for(i = 0; i < obj.length; i++){
+            if(obj[i].value == radiovalue){
+                obj[i].checked = true;
+            }
+        }
+    }
 </script>
 <body background="${ctx.contextPath}/images/back.gif">
 <center>
@@ -63,4 +71,13 @@
     </table>
 </center>
 </body>
+<script type="text/javascript">
+    // 付费状态设置
+    setRadioBoxSelect("infoPayfor","${(infoEntity.infoPayfor)!'all'}");
+    // 审核状态设置
+    setRadioBoxSelect("infoState","${(infoEntity.infoState)!'all'}");
+    // 设置信息类别
+    document.getElementById("typeId").value='${(infoEntity.infoType)!''}';
+
+</script>
 </html>
