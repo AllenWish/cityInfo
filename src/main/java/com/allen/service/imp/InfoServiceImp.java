@@ -52,4 +52,14 @@ public class InfoServiceImp implements InfoService {
     public List<InfoEntity> infoList(InfoEntity infoEntity) throws Exception{
         return infoDao.infoList(infoEntity);
     }
+
+    @Override
+    public void deleteById(int delId) throws Exception {
+        infoDao.deleteById(delId);
+    }
+
+    @Override
+    public void checkInfo(int id) throws Exception {
+        infoDao.checkInfo(id);
+    }
 }

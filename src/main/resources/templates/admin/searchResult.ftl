@@ -6,16 +6,35 @@
     <script type="text/javascript">
         function deleteInfo(deleteId){
             if(confirm("确认要删除这条信息吗?")){
-                $.post("cityinfo/admin!deleteInfo",{delId:deleteId},
-                        function(delFlag){
-                            var flag=eval(delFlag);
+                /*$.ajax({
+                    type: 'POST',
+                    url: "${ctx.contextPath}/user/deleteInfo",
+                    data: {delId:deleteId},
+                    success: function(data){
+                        console.info(data)
+                        var flag=data.flag;
+                        if(flag){
+                            alert("删除成功！");
+                            document.getElementById("searchForm").submit();
+                        }else{
+                            alert("删除失败！");
+                        }
+                    },
+                    dataType: 'json',
+                    error: function(e){console.info(e)}
+                });*/
+
+                $.post("${ctx.contextPath}/user/deleteInfo",{delId:deleteId},
+                        function(data){
+                            var flag=data.flag;
                             if(flag){
                                 alert("删除成功！");
                                 document.getElementById("searchForm").submit();
                             }else{
                                 alert("删除失败！");
                             }
-                        }
+                        },
+                        'json'
                 );
             }
         }
@@ -23,7 +42,8 @@
     <style type="text/css">
         .oddRow{background-color: #7c7c7c
         }
-        .evenRow{background-color: #cecece }
+        .evenRow{background-color: #d9d9d9
+        }
     </style>
 </head>
 <body>
@@ -66,7 +86,7 @@
                                         <font color="blue">否</font>
                                     </#if>
                                 </td>
-                                <td align="center"><a href="">√审核</a></td>
+                                <td align="center"><a href="${ctx.contextPath}/user/infodetails/${info.id}">√审核</a></td>
                                 <td align="center"><a href="javascript:deleteInfo('${info.id }')">×删除</a></td>
                             </tr>
                         <#else>

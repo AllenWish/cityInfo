@@ -19,4 +19,8 @@ public interface InfoService {
     public void insertInfo(InfoEntity info) throws Exception;
 
     public List<InfoEntity> infoList(InfoEntity infoEntity) throws Exception;
+
+    public void deleteById(int delId)throws Exception;
+
+    public void checkInfo(int id)  throws Exception;
 }

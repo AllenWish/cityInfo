@@ -1,10 +1,7 @@
 package com.allen.dao;
 
 import com.allen.entity.InfoEntity;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -40,7 +37,7 @@ public interface InfoDao {
             " t.info_phone as infoPhone, t.info_email as infoEmail,t.info_date as infoDate,t.info_state as infoState," +
             " t.info_payfor as infoPayfor,d.id as typeId,d.type_sign as typeSign,d.type_name as typeName,d.type_intro as typeIntro " +
             " from t_info t,t_infoType d " +
-            " where t.info_type=d.id and t.info_state=1 and t.id=#{id}")
+            " where t.info_type=d.id  and t.id=#{id}")
     public Map<String,Object> getById(@Param("id")int id) throws Exception;
 
     @Select(" select t.id,t.info_title as infoTitle,t.info_content as infoContent,t.info_linkman as infoLinkman," +
@@ -56,4 +53,10 @@ public interface InfoDao {
 
 
     public List<InfoEntity> infoList(InfoEntity infoEntity);
+
+    @Delete("delete FROM t_info where id=#{id}")
+    public void deleteById(int id);
+
+    @Update("update t_info set info_state = '1' where id =#{id}")
+    public void checkInfo(int id);
 }

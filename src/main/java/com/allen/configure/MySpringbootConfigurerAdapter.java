@@ -15,6 +15,6 @@ public class MySpringbootConfigurerAdapter extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         super.addInterceptors(registry);
         registry.addInterceptor(new MyInterceptor());
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/user","/user/*");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/user","/user/**");
     }
 }
