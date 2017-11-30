@@ -20,7 +20,7 @@
             <td align="right" valign="bottom">
                 <#--<a href="#"  style="color:gray" onclick="this.style.behavior='url(http://localhost:8033/cityInfo)';this.setHomePage('http://localhost:8033/cityInfo');">设为主页 -</a>-->
                 <a href="javascript:window.external.AddFavorite('都市供求信息网','http://localhost:8033/cityInfo')" style="color:gray">收藏本页 -</a>
-                <a href="mailto:cuigenyou@163.com" style="color:gray">联系我们 -</a>
+                <a href="mailto:1697501868@qq.com" style="color:gray">联系我们 -</a>
                 <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1697501868&amp;site=qq&amp;menu=yes" style="color:gray" target="_blank">在线联系</a>
                 &nbsp;
             </td>

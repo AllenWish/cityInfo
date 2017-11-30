@@ -23,7 +23,7 @@
         <tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■日历</b></font></td></tr>
         <tr height="1"><td></td></tr>
         <tr height="215">
-            <td valign="top" background="images/leftD.jpg">
+            <td valign="top" background="${ctx.contextPath}/images/leftD.jpg">
                 <#include "calendar.ftl">
             <#--<jsp:include page="/pages/calendar.jsp"/>-->
             </td>
@@ -37,7 +37,7 @@
 
         <tr height="103">
 
-            <td align="center" valign="top" background="images/leftS.jpg">
+            <td align="center" valign="top" background="${ctx.contextPath}/images/leftS.jpg">
 
                 <table border="0" width="99%" height="100%" cellspacing="0">
 
